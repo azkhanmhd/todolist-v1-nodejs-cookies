@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <center>
+        <h1 class="title">To Do List</h1>
+        <div class="main">
+            <ul class="mainOfEachToDo">
+                <% todolist.forEach(item => { %>
+                    <form action="/remove" method="post">
+                        <input type="hidden" name="id" value="<%- item.id %>">
+                        <li class="eachToDo"><%- item.content %> <input type="submit" value="✔"></li>
+                    </form>
+                <% }); %>
+            
+                <form action="/add" method="post">
+                    <li class="addToDo"><input class="addInput" type="text" name="content" autocomplete="off" placeholder="Click Here To Type..." autofocus required> <input class="addTo" type="submit" value="+"></li>
+                </form>
+            </ul>
+        </div>
+    </center>
+</body>
+</html>
